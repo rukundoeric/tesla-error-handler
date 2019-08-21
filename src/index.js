@@ -1,5 +1,9 @@
+/* eslint-disable import/prefer-default-export */
 import React, { Component } from 'react'
-const withErrorHandler = (WrappedComponent, axios) => class extends Component {
+
+import notFound from '../../assets/images/notFound.svg'
+
+export const withErrorHandler = (WrappedComponent, axios) => class extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -13,6 +17,7 @@ const withErrorHandler = (WrappedComponent, axios) => class extends Component {
         const style = {
           width: '600px',
           margin: '50px auto',
+          'min-height': '80vh',
           background: 'transparent',
           border: 'none'
         }
@@ -23,12 +28,9 @@ const withErrorHandler = (WrappedComponent, axios) => class extends Component {
             responseError = {
               status: 404,
               message: (
-                <div className='card' style={style}>
-                  <img src='https://firebasestorage.googleapis.com/v0/b/authorshaven-cebfb.appspot.com/o/images%2FnotFound.svg?alt=media&token=f791a123-c9b5-4278-953e-0d39f5a3fe29' className='card-img-top' alt='Not Found' />
-                  <div className='card-body'>
-                    <h5 className='card-title'>{response.data.message}</h5>
-                    <a href='/' className='btn btn-primary'>Homepage</a>
-                  </div>
+                <div className='card error-handler-div' style={style}>
+                  <img src={notFound} className='card-img-top' alt='Not Found' />
+                  <p className='card-title'>{response.data.message}</p>
                 </div>
               )
             }
@@ -48,5 +50,3 @@ const withErrorHandler = (WrappedComponent, axios) => class extends Component {
     return error.message
   }
 }
-
-export default withErrorHandler
