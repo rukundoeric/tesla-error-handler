@@ -48,6 +48,8 @@ var possibleConstructorReturn = function (self, call) {
   return call && (typeof call === "object" || typeof call === "function") ? call : self;
 };
 
+/* eslint-disable import/prefer-default-export */
+
 var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
   return function (_Component) {
     inherits(_class, _Component);
@@ -69,6 +71,7 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
         var style = {
           width: '600px',
           margin: '50px auto',
+          'min-height': '80vh',
           background: 'transparent',
           border: 'none'
         };
@@ -80,21 +83,12 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
               status: 404,
               message: React.createElement(
                 'div',
-                { className: 'card', style: style },
+                { className: 'card error-handler-div', style: style },
                 React.createElement('img', { src: 'https://firebasestorage.googleapis.com/v0/b/authorshaven-cebfb.appspot.com/o/images%2FnotFound.svg?alt=media&token=f791a123-c9b5-4278-953e-0d39f5a3fe29', className: 'card-img-top', alt: 'Not Found' }),
                 React.createElement(
-                  'div',
-                  { className: 'card-body' },
-                  React.createElement(
-                    'h5',
-                    { className: 'card-title' },
-                    response.data.message
-                  ),
-                  React.createElement(
-                    'a',
-                    { href: '/', className: 'btn btn-primary' },
-                    'Homepage'
-                  )
+                  'p',
+                  { className: 'card-title' },
+                  response.data.message
                 )
               )
             };
@@ -121,5 +115,5 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
   }(Component);
 };
 
-export default withErrorHandler;
+export { withErrorHandler };
 //# sourceMappingURL=index.es.js.map

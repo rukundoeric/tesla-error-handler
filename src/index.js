@@ -8,6 +8,11 @@ export const withErrorHandler = (WrappedComponent, axios) => class extends Compo
       error: null
     }
 
+    this.reqInterceptor = axios.interceptors.request.use(req => {
+      this.setState({ error: null })
+      return req
+    })
+
     this.resInterceptor = axios.interceptors.response.use(
       res => res,
       (error) => {
@@ -38,6 +43,15 @@ export const withErrorHandler = (WrappedComponent, axios) => class extends Compo
         }
       }
     )
+  }
+
+  componentWillUnmount() {
+    axios.interceptors.request.eject(this.reqInterceptor)
+    axios.interceptors.response.eject(this.resInterceptor)
+  }
+
+  errorComfirmedHandler = () => {
+    this.setState({ error: null })
   }
 
   render() {
