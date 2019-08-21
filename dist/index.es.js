@@ -52,16 +52,25 @@ var possibleConstructorReturn = function (self, call) {
 
 var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
   return function (_Component) {
-    inherits(_class, _Component);
+    inherits(_class2, _Component);
 
-    function _class(props) {
-      classCallCheck(this, _class);
+    function _class2(props) {
+      classCallCheck(this, _class2);
 
-      var _this = possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this, props));
+      var _this = possibleConstructorReturn(this, (_class2.__proto__ || Object.getPrototypeOf(_class2)).call(this, props));
+
+      _this.errorComfirmedHandler = function () {
+        _this.setState({ error: null });
+      };
 
       _this.state = {
         error: null
       };
+
+      _this.reqInterceptor = axios.interceptors.request.use(function (req) {
+        _this.setState({ error: null });
+        return req;
+      });
 
       _this.resInterceptor = axios.interceptors.response.use(function (res) {
         return res;
@@ -100,7 +109,13 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
       return _this;
     }
 
-    createClass(_class, [{
+    createClass(_class2, [{
+      key: 'componentWillUnmount',
+      value: function componentWillUnmount() {
+        axios.interceptors.request.eject(this.reqInterceptor);
+        axios.interceptors.response.eject(this.resInterceptor);
+      }
+    }, {
       key: 'render',
       value: function render() {
         var error = this.state.error;
@@ -111,7 +126,7 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
         return error.message;
       }
     }]);
-    return _class;
+    return _class2;
   }(Component);
 };
 
