@@ -1,5 +1,7 @@
 'use strict';
 
+Object.defineProperty(exports, '__esModule', { value: true });
+
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var React = require('react');
@@ -73,6 +75,7 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
 
         var style = {
           width: '600px',
+          minHeight: '80vh',
           margin: '50px auto',
           background: 'transparent',
           border: 'none'
@@ -85,7 +88,7 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
               status: 404,
               message: React__default.createElement(
                 'div',
-                { className: 'card', style: style },
+                { className: 'card not-found-cont', style: style },
                 React__default.createElement('img', { src: 'https://firebasestorage.googleapis.com/v0/b/authorshaven-cebfb.appspot.com/o/images%2FnotFound.svg?alt=media&token=f791a123-c9b5-4278-953e-0d39f5a3fe29', className: 'card-img-top', alt: 'Not Found' }),
                 React__default.createElement(
                   'div',
@@ -94,11 +97,6 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
                     'h5',
                     { className: 'card-title' },
                     response.data.message
-                  ),
-                  React__default.createElement(
-                    'a',
-                    { href: '/', className: 'btn btn-primary' },
-                    'Homepage'
                   )
                 )
               )
@@ -126,5 +124,5 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
   }(React.Component);
 };
 
-module.exports = withErrorHandler;
+exports.withErrorHandler = withErrorHandler;
 //# sourceMappingURL=index.js.map
