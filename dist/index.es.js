@@ -81,7 +81,7 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
               message: React.createElement(
                 'div',
                 { className: 'card', style: style },
-                React.createElement('img', { src: 'https://firebasestorage.googleapis.com/v0/b/authorshaven-cebfb.appspot.com/o/images%2Fe-commerce-back.jpg?alt=media&token=44654853-e2bb-4dfd-9b47-fbdac5d952a0', className: 'card-img-top', alt: 'Not Found' }),
+                React.createElement('img', { src: 'https://firebasestorage.googleapis.com/v0/b/authorshaven-cebfb.appspot.com/o/images%2FnotFound.svg?alt=media&token=f791a123-c9b5-4278-953e-0d39f5a3fe29', className: 'card-img-top', alt: 'Not Found' }),
                 React.createElement(
                   'div',
                   { className: 'card-body' },

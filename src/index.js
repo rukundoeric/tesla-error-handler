@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const withErrorHandler = (WrappedComponent, axios) => class extends Component {
+export const withErrorHandler = (WrappedComponent, axios) => class extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -12,6 +12,7 @@ const withErrorHandler = (WrappedComponent, axios) => class extends Component {
         const { response } = error
         const style = {
           width: '600px',
+          minHeight: '80vh',
           margin: '50px auto',
           background: 'transparent',
           border: 'none'
@@ -23,11 +24,10 @@ const withErrorHandler = (WrappedComponent, axios) => class extends Component {
             responseError = {
               status: 404,
               message: (
-                <div className='card' style={style}>
+                <div className='card not-found-cont' style={style}>
                   <img src='https://firebasestorage.googleapis.com/v0/b/authorshaven-cebfb.appspot.com/o/images%2FnotFound.svg?alt=media&token=f791a123-c9b5-4278-953e-0d39f5a3fe29' className='card-img-top' alt='Not Found' />
                   <div className='card-body'>
                     <h5 className='card-title'>{response.data.message}</h5>
-                    <a href='/' className='btn btn-primary'>Homepage</a>
                   </div>
                 </div>
               )
@@ -48,5 +48,3 @@ const withErrorHandler = (WrappedComponent, axios) => class extends Component {
     return error.message
   }
 }
-
-export default withErrorHandler
