@@ -24,7 +24,7 @@ const withErrorHandler = (WrappedComponent, axios) => class extends Component {
               status: 404,
               message: (
                 <div className='card' style={style}>
-                  <img src='./notFound.svg' className='card-img-top' alt='Not Found' />
+                  <img src='https://firebasestorage.googleapis.com/v0/b/authorshaven-cebfb.appspot.com/o/images%2Fe-commerce-back.jpg?alt=media&token=44654853-e2bb-4dfd-9b47-fbdac5d952a0' className='card-img-top' alt='Not Found' />
                   <div className='card-body'>
                     <h5 className='card-title'>{response.data.message}</h5>
                     <a href='/' className='btn btn-primary'>Homepage</a>
