@@ -75,7 +75,7 @@ var withErrorHandler = function withErrorHandler(WrappedComponent, axios) {
 
         var style = {
           width: '600px',
-          minHeight: '80vh',
+          'min-height': '80vh',
           margin: '50px auto',
           background: 'transparent',
           border: 'none'

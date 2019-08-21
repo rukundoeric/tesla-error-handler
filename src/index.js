@@ -12,7 +12,6 @@ export const withErrorHandler = (WrappedComponent, axios) => class extends Compo
         const { response } = error
         const style = {
           width: '600px',
-          'min-height': '80vh',
           margin: '50px auto',
           background: 'transparent',
           border: 'none'
