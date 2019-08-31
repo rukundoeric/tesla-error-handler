@@ -15,17 +15,19 @@ npm install --save tesla-error-handler
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'tesla-error-handler'
+import withErrorHandler from 'tesla-error-handler'
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <h1>Team Tesla</h1>
     )
   }
 }
+
+export default withErrorHandler(Example)
 ```
 
 ## License
 
-MIT © [Rukundo eric prestein](https://github.com/Rukundo eric prestein)
+MIT © [Deschant Kounou](https://github.com/deschant)

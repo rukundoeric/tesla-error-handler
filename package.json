@@ -2,7 +2,10 @@
   "name": "tesla-error-handler",
   "version": "1.1.2",
   "description": "",
-  "author": "Rukundo eric prestein",
+  "author": "Deschant Kounou <kounoudeschant@gmail.com> (https://github.com/deschant)",
+  "contributors": [
+    "Rukundo Eric Prestein <ericrukundo005@gmail.com> (https://github.com/Rukundo)"
+  ],
   "license": "MIT",
   "repository": "https://github.com/rukundoeric/tesla-error-handler.git",
   "main": "dist/index.js",
